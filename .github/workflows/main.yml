@@ -13,8 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token (PAT)
-          fetch-depth: 0 # fetch all history for all branches and tags
+          persist-credentials: true # This ensures that credentials are persisted
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -28,7 +27,6 @@ jobs:
         env:
           WEATHERLINK_API_KEY: ${{ secrets.WEATHERLINK_API_KEY }}
           WEATHERLINK_API_SECRET: ${{ secrets.WEATHERLINK_API_SECRET }}
-          WEATHERLINK_STATION_ID: ${{ secrets.WEATHERLINK_STATION_ID }}
         run: node fetchWeatherData.js
 
       - name: Commit and push changes
