@@ -2,7 +2,7 @@ name: Fetch Weather Data
 
 on:
   schedule:
-    - cron: '*/2 * * * *' # This will run the job every 2 minutes
+    - cron: '*/5 * * * *' # This will run the job every 2 minutes
   workflow_dispatch: # Allows for manual triggering of the workflow
 
 permissions:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          persist-credentials: false # Ensure the correct token is used
+          persist-credentials: true # Ensure the correct token is used
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
