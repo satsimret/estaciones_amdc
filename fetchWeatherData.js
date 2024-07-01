@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const moment = require('moment-timezone');
 
 const apiKey = process.env.WEATHERLINK_API_KEY;
 const apiSecret = process.env.WEATHERLINK_API_SECRET;
@@ -55,10 +56,10 @@ async function storeCurrentData() {
       });
     }
 
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const dateOfExecution = now.toISOString().replace(/[:.-]/g, '');
+    const now = moment().tz("America/Tegucigalpa");
+    const year = now.year();
+    const month = now.format("MM"); // Pad month to 2 digits
+    const dateOfExecution = now.format("YYYYMMDD_HHmmss");
     const fileName = `${uuidv4()}_${dateOfExecution}.json`;
 
     const dirPath = path.join(__dirname, 'davisdata', year.toString(), month);
