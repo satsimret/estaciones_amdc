@@ -60,7 +60,7 @@ async function storeCurrentData() {
     const year = now.year();
     const month = now.format("MM"); // Pad month to 2 digits
     const dateOfExecution = now.format("YYYYMMDD_HHmmss");
-    const fileName = `${uuidv4()}_${dateOfExecution}.json`;
+    //const fileName = `${uuidv4()}_${dateOfExecution}.json`;
     const fileName = `${dateOfExecution}_${uuidv4()}.json`;
 
     const dirPath = path.join(__dirname, 'davisdata', year.toString(), month);
