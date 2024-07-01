@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          persist-credentials: true # Ensure the correct token is used
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
