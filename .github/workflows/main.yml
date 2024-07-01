@@ -24,7 +24,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install axios uuid
+        run: npm install axios uuid moment-timezone
 
       - name: Run weather data fetch script
         env:
