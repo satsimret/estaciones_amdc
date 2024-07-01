@@ -2,7 +2,7 @@ name: Fetch Weather Data
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # This will run the job every 2 minutes
+    - cron: '*/3 * * * *' # This will run the job every 2 minutes
   workflow_dispatch: # Allows for manual triggering of the workflow
 
 permissions:
